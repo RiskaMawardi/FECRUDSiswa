@@ -15,15 +15,17 @@ use Illuminate\Support\Facades\Route;
 */
 
 
-
+    //get data siswa
     Route::get('/',[SiswaController::class,'index']);
 
-
-
-
-
-
-
-
+    //ngarahin ke halaman create
     Route::get('/siswa/create',[SiswaController::class,'create']);
+
+    //methode yg digunakan pada halaman create
     Route::post('/siswa/create',[SiswaController::class,'store']);
+
+    //ngarahin ke tampilan edit
+    Route::get('/edit/{id_siswa}',[SiswaController::class,'edit']);
+
+    //update data
+    Route::put('/update/{id_siswa}',[SiswaController::class,'update']);

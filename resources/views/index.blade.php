@@ -12,6 +12,7 @@
         <li>Nis: {{$siswa['nis']}}</li>
         <li>Nama: {{$siswa['nama']}}</li>
         <li>Rombel: {{$siswa['rombel']}}</li>
+        <a href="/edit/{{$siswa['id_siswa']}}">update</a>
     </ol>
     @endforeach
 </body>

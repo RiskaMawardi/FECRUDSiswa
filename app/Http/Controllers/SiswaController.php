@@ -37,6 +37,28 @@ class SiswaController extends Controller
     return redirect('/')->with('success', 'Success add new Students to API!');
     }
 
+    public function edit($id_siswa){
+        $response = (new BaseApi)->update('/api/getData', $id_siswa);
+        $datas = $response->json();
+        return view('update')->with('datas',$datas['data']);
+    }
+
+    public  function update(Request $request,$id_siswa){
+        $payload = [
+            'nis' => $request->input('nis'),
+            'nama' => $request->input('nama'),
+            'rombel' => $request->input('rombel'),
+        ];
+
+        $response = (new BaseApi)->updateStore('/api/siswa/update', $id_siswa, $payload);
+	    if ($response->failed()) {
+		$errors = $response->json('data');
+
+		return redirect()->back()->with(['errors' => $errors]);
+	}
+	    return redirect('/')->with('success', 'Data  success edited!');
+    }
+
 
 
 

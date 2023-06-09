@@ -20,21 +20,22 @@
         </ul>
     </div>
     @endif
-        <form action="/siswa/create" method="post">
+        <form action="/update/{{$datas['id_siswa']}}" method="post">
             @csrf
+            @method('PUT')
             <div class="mb-3">
                 <label for="exampleInputPassword1" class="form-label">nis</label>
-                <input type="text" name="nis" class="form-control" id="exampleInputPassword1">
+                <input type="text" name="nis" class="form-control" id="exampleInputPassword1" value="{{$datas['nis']}}">
             </div>
             <div class="mb-3">
                 <label for="exampleInputEmail1" class="form-label">nama</label>
                 <input type="text" name="nama" class="form-control" id="exampleInputEmail1"
-                    aria-describedby="emailHelp">
+                    aria-describedby="emailHelp" value="{{$datas['nama']}}">
             </div>
             <div class="mb-3">
                 <label for="exampleInputEmail1" class="form-label">rombel</label>
                 <input type="text" name="rombel" class="form-control" id="exampleInputEmail1"
-                    aria-describedby="emailHelp">
+                    aria-describedby="emailHelp" value="{{$datas['rombel']}}">
             </div>
             <div class="mb-3 d-flex">
                 <button type="submit" class="btn btn-light">Send</button>

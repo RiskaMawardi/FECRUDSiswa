@@ -24,16 +24,22 @@ class BaseApi
         return $this->client()->get($endpoint, $data);
     }
     
-
-
-
-
-
-    
-    public function create(String $endpoint, Array $data)
+    public function create(String $endpoint, Array $data = [])
     {
         return $this->client()->post($endpoint, $data);
     }
+
+    public function update(String $endpoint, String $id_siswa, Array $data = [])
+    {
+        return $this->client()->get("$endpoint/$id_siswa", $data);
+    }
+
+    public function updateStore(String $endpoint, String $id_siswa, Array $data = [])
+    {
+        return $this->client()->put("$endpoint/$id_siswa", $data);
+    }
+    
+    
 
 
    
